@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<title>Code</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #a8d0e6, #e1f0fa); /* Fons amb tons de blau cel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: sans-serif;
+    cursor: pointer;
+  }
+
+  .contenidor {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .papallona {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+    cursor: pointer;
+  }
+
+  /* Aleteig */
+  .aletejant {
+    animation: aleteig 0.5s infinite alternate ease-in-out;
+  }
+
+  @keyframes aleteig {
+    from { transform: translate(-50%, -50%) scale(1); }
+    to   { transform: translate(-50%, -50%) scale(1.15); }
+  }
+
+  /* Vol */
+  .volant {
+    animation: vol 3s forwards ease-in-out;
+  }
+
+  @keyframes vol {
+    0% {
+      transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(1);
+      opacity: 1;
+    }
+    30% {
+      transform: translate(-50%, -50%) translate(60px, -120px) rotate(-10deg) scale(1.2);
+    }
+    60% {
+      transform: translate(-50%, -50%) translate(-40px, -260px) rotate(15deg) scale(1.1);
+    }
+    100% {
+      transform: translate(-50%, -50%) translate(100px, -500px) rotate(25deg) scale(0.8);
+      opacity: 0;
+    }
+  }
+
+  .text {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    font-size: 26px;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    text-align: center;
+    width: 300px;
+    color: #004c6d; /* Color de text blau més fosc */
+  }
+
+  .text.visible {
+    opacity: 1;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="contenidor">
+  <div id="papallona" class="papallona aletejant">🦋</div>
+  <div id="text" class="text">
+    Si jo fos un llenguatge de programació, m’agradaria que fossis l’única persona que toques el meu codi.
+  </div>
+</div>
+
+<script>
+  const pap = document.getElementById("papallona");
+  const txt = document.getElementById("text");
+  let clicat = false;
+
+  // Afegim l'esdeveniment de clic a tot el document
+  document.addEventListener("click", () => {
+    if (clicat) return; // Evitem que es faci més d'una vegada
+    clicat = true;
+
+    pap.classList.remove("aletejant");
+
+    // Força reinici animació
+    void pap.offsetWidth;
+
+    pap.classList.add("volant");
+
+    setTimeout(() => {
+      txt.classList.add("visible");
+    }, 1800);
+  });
+</script>
+
+</body>
+</html>
