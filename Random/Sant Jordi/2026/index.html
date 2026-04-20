@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sant Jordi 2026</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 380px;
+    }
+
+    h1 {
+      color: #c0392b;
+      margin-bottom: 25px;
+    }
+
+    .rose {
+      width: 140px;
+      margin: 0 auto 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 14px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      background: #e74c3c;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #c0392b;
+    }
+
+    .hidden-message {
+      margin-top: 15px;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      color: #555;
+    }
+
+    .show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <!-- Rosa més realista amb gradients -->
+    <svg class="rose" viewBox="0 0 120 160">
+      <defs>
+        <radialGradient id="petal" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ff6b6b" />
+          <stop offset="100%" stop-color="#c0392b" />
+        </radialGradient>
+        <linearGradient id="stem" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#2ecc71" />
+          <stop offset="100%" stop-color="#1e8449" />
+        </linearGradient>
+      </defs>
+
+      <!-- Tija -->
+      <rect x="57" y="50" width="6" height="100" fill="url(#stem)" rx="3" />
+
+      <!-- Fulles -->
+      <path d="M60 90 C20 70, 20 120, 60 105" fill="#27ae60" />
+      <path d="M60 110 C100 90, 100 140, 60 125" fill="#27ae60" />
+
+      <!-- Pètals més naturals -->
+      <ellipse cx="60" cy="40" rx="28" ry="22" fill="url(#petal)" />
+      <ellipse cx="45" cy="35" rx="18" ry="15" fill="#b03a2e" />
+      <ellipse cx="75" cy="35" rx="18" ry="15" fill="#b03a2e" />
+      <ellipse cx="60" cy="28" rx="14" ry="12" fill="#922b21" />
+    </svg>
+
+    <h1>Feliç Sant Jordi</h1>
+
+    <button>Èlia</button>
+
+  </div>
+
+</body>
+</html>
